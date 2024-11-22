@@ -1,6 +1,67 @@
 import { useState, useEffect, useRef } from 'react'
 import { Search, ChevronLeft, ChevronRight, Star, Phone } from 'lucide-react'
 
+import SocialMediaLinks from './components/SocialMediaLinks';
+import button1 from './images/button1.png';
+import button2 from './images/button2.png';
+
+
+// Add this translation object outside the component
+const translations = {
+  en: {
+    aboutUs: "About Us",
+    termsOfService: "Terms Of Service", 
+    privacyPolicy: "Privacy Policy",
+    responsibleGaming: "Responsible Gaming",
+    kycPolicies: "KYC Policies",
+    loginRegister: "Login or Register",
+    
+    responsibility: "Responsibility",
+    bonusRules: "General Bonuses and Bonus Rules",
+    selfExclusion: "Self-Exclusion", 
+    antiMoneyLaundering: "Anti-Money Laundering",
+    fairnessAndRNG: "Fairness and RNG Testing Methods",
+    disputeResolution: "Dispute Resolution",
+
+    games: "Games",
+    sportsbook: "Sportsbook",
+    esport: "E-sport",
+    slot: "Slot",
+    liveCasino: "Live Casino",
+
+    contact: "Contact",
+    callYou: "Let Us Call You!",
+    contactUs: "Contact Us",
+    support: "24/7 Support",
+  },
+  tr: {
+    aboutUs: "Hakkımızda",
+    termsOfService: "Kullanım Koşulları",
+    privacyPolicy: "Gizlilik Politikası", 
+    responsibleGaming: "Sorumlu Oyun",
+    kycPolicies: "KYC Politikaları",
+    loginRegister: "Giriş yap veya Kayıt ol",
+
+    responsibility: "Sorumluluk",
+    bonusRules: "Genel Bonus ve Bonus Kuralları",
+    selfExclusion: "Kendi Kendini Dışlama",
+    antiMoneyLaundering: "Kara Para Aklamayla Mücadele",
+    fairnessAndRNG: "Adillik ve RNG Test Yöntemleri",
+    disputeResolution: "Anlaşmazlık Çözümü",
+
+    games: "Oyunlar",
+    sportsbook: "Spor Bahisleri",
+    esport: "E-spor",
+    slot: "Slot",
+    liveCasino: "Canlı Casino",
+
+    contact: "İletişim",
+    callYou: "Sizi Arayalım!",
+    contactUs: "Bize Ulaşın",
+    support: "7/24 Destek"
+  }
+};
+
 export default function App() {
   const [selectedTab, setSelectedTab] = useState('Tümü')
   const navItems = ['Bahis', 'Canlı', 'Slots', 'Esports', 'Sanal', 'Canlı Casino', 'Diğer Oyunlar', 'Parlaybay']
@@ -112,6 +173,12 @@ export default function App() {
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0)
   const [scrollPosition, setScrollPosition] = useState(0)
   const tabsContainerRef = useRef(null)
+
+  // Add language state
+  const [language, setLanguage] = useState('tr'); // or 'tr' for Turkish
+  
+  // Get current translations
+  const t = translations[language];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -445,6 +512,83 @@ export default function App() {
             />
           </svg>
         </div>
+        </div>
+      </div>
+      <div className="px-5 mx-auto" style={{ maxWidth: '1200px', minWidth: '1200px' }}>
+        <div className="container mx-auto flex items-center justify-between py-[30px] border-b-[1px] border-white border-opacity-10">
+          <div className="text-[#1fd18d] text-2xl font-bold flex items-center">
+            <svg viewBox="0 0 202 29" xmlns="http://www.w3.org/2000/svg" height="30">
+              <path fillRule="evenodd" clipRule="evenodd" d="M54.267 3.458c.085-.085.169-.169.27-.253L52.025.708A2.331 2.331 0 0050.338 0c-.64 0-1.23.253-1.686.708-.927.928-.944 2.446-.017 3.374l2.53 2.53c.084-.101.168-.202.253-.287l2.85-2.867zm7.824 6.797l.05-.202a2.434 2.434 0 00-.37-1.805l-.337-.489-2.344-3.002a2.483 2.483 0 00-1.821-.962 2.5 2.5 0 00-1.94.725l-2.428 2.413-.438.438a2.4 2.4 0 00-.22 3.154c.068.101.153.186.22.253.186.186.388.32.607.439a2.47 2.47 0 002.816-.472l.405-.388a.812.812 0 01.54-.22h.067c.22.017.421.135.556.32l.32.456c.76 1.13 2.26 1.434 3.356.692.472-.32.81-.776.961-1.316v-.034zM51.57 12.01a2.398 2.398 0 01-3.457.506 1.618 1.618 0 01-.075-.085 1.486 1.486 0 00-.076-.084l-3.81-3.829h-.018a2.409 2.409 0 01.017-3.373 2.398 2.398 0 013.39-.017v.017l2.866 2.867a3.882 3.882 0 00-.152 1.08c0 .843.287 1.686.793 2.361.118.152.236.287.354.405.05.05.101.101.168.152zm-4.704 4.773c.455-.472.691-1.08.691-1.704 0-.607-.219-1.214-.691-1.652l-3.81-3.813v-.016l-.018-.017a2.331 2.331 0 00-1.686-.709 2.37 2.37 0 00-1.703.709 2.38 2.38 0 00-.169 3.188l4.199 4.2a2.38 2.38 0 003.187-.186zM31.79 7.22l-3.39 3.39-.37-.37a2.371 2.371 0 01-.708-1.704c0-.641.253-1.248.708-1.687a2.36 2.36 0 011.686-.708 2.4 2.4 0 011.703.708l.371.371zm27.182 16.783l2.765-2.547c2.698-2.48 3.153-6.578 1.231-9.597-.27.37-.59.691-.978.961a3.806 3.806 0 01-2.175.675 3.954 3.954 0 01-3.086-1.467 3.898 3.898 0 01-3.844.742c-.009.008-.013.02-.017.033a.083.083 0 01-.017.034 5.001 5.001 0 01-.472.574 3.893 3.893 0 01-2.766 1.147c-.185 0-.387-.017-.573-.051a3.92 3.92 0 01-1.096 3.34 3.922 3.922 0 01-5.244.27c-.034-.017-.05-.034-.068-.05l-4.266-4.268-1.045-1.046-3.39 3.39 7.521 7.523a12.621 12.621 0 0017.52.337z" fill="#00C683" />
+              <path fillRule="evenodd" clipRule="evenodd" d="M121.616 4.89c0 .59.217 1.086.651 1.489.434.388.992.59 1.69.605.697 0 1.255-.217 1.69-.62.434-.404.651-.931.651-1.551 0-.574-.217-1.055-.651-1.443-.435-.387-1.008-.573-1.69-.573-.698 0-1.256.201-1.69.604-.434.404-.651.9-.651 1.49zm4.201 3.893h-3.752v12.95h3.752V8.782zm-24.96 1.876a5.378 5.378 0 00-2.326-2.264c-.992-.512-2.155-.775-3.473-.775-1.302 0-2.465.263-3.457.775a5.547 5.547 0 00-2.325 2.264c-.558.993-.837 2.187-.837 3.583v7.49h3.798v-3.101h5.659v3.101h3.798v-7.49c0-1.396-.279-2.59-.837-3.583zm-2.962 3.117v1.908h-5.643v-1.907c0-1.008.248-1.753.745-2.28.496-.512 1.178-.776 2.061-.776.884 0 1.566.248 2.078.776.511.527.76 1.287.76 2.28zM85.99 17.934c0-.838-.217-1.551-.636-2.125-.418-.59-1.023-1.008-1.798-1.303.558-.31.992-.713 1.287-1.225.294-.511.45-1.1.45-1.752 0-1.117-.466-2-1.396-2.652-.93-.667-2.279-.993-4.062-.993h-7.07v13.85h7.458c1.876 0 3.302-.326 4.294-.993.977-.667 1.473-1.598 1.473-2.807zm-9.473-4.467v-2.915h2.838c.697 0 1.24.124 1.597.372.356.248.542.62.542 1.101 0 .465-.186.822-.558 1.07-.357.248-.9.372-1.581.372h-2.838zm3.427 2.544c1.473 0 2.217.511 2.217 1.52 0 1.023-.729 1.52-2.217 1.504H76.5V16.01h3.442zm25.317-8.127h3.798v5.289h5.628v-5.29h3.798v13.834h-3.798v-5.475h-5.628v5.49h-3.798V7.883zm25.487 13.694c-1.069-.279-1.922-.636-2.558-1.085l1.318-2.823c.62.419 1.349.744 2.186.993.837.248 1.69.356 2.543.356.806 0 1.379-.108 1.736-.325.357-.217.543-.512.543-.884 0-.419-.217-.73-.667-.93-.45-.202-1.163-.404-2.139-.59a19.704 19.704 0 01-2.652-.714 4.51 4.51 0 01-1.798-1.21c-.512-.558-.76-1.333-.76-2.31 0-.868.248-1.628.745-2.31.496-.668 1.209-1.195 2.155-1.583.945-.372 2.046-.558 3.302-.558.93 0 1.829.093 2.713.295.884.201 1.643.496 2.279.9l-1.225 2.822c-1.147-.713-2.465-1.055-3.922-1.055-.791 0-1.365.124-1.737.341-.372.233-.558.543-.558.931 0 .419.217.729.667.915.449.186 1.163.388 2.139.574 1.055.217 1.938.465 2.636.713a4.298 4.298 0 011.798 1.21c.512.558.76 1.302.76 2.248 0 .884-.248 1.66-.729 2.327-.496.667-1.209 1.194-2.155 1.582-.945.372-2.062.558-3.364.558a12.084 12.084 0 01-3.256-.388zm18.915-3.086a6.664 6.664 0 002.651 2.512c1.131.605 2.403.915 3.783.947 2.341 0 4.139-.73 5.395-2.172l-1.489-1.52c-1.054 1.102-2.325 1.66-3.829 1.66-.977 0-1.86-.217-2.636-.651a4.743 4.743 0 01-1.829-1.8c-.45-.76-.667-1.612-.667-2.558 0-.962.233-1.83.667-2.59a4.705 4.705 0 011.829-1.784c.776-.418 1.659-.636 2.636-.636 1.535 0 2.806.543 3.829 1.629l1.489-1.52c-1.241-1.427-3.039-2.14-5.395-2.14-1.396 0-2.652.31-3.783.915-1.117.605-2.016 1.442-2.651 2.512-.636 1.07-.962 2.264-.962 3.598s.326 2.528.962 3.598zm16.96 2.512c-1.131-.604-2.031-1.442-2.666-2.512-.636-1.07-.961-2.264-.961-3.598s.325-2.528.961-3.598c.635-1.07 1.535-1.907 2.666-2.512 1.132-.605 2.403-.915 3.799-.915 1.411 0 2.682.31 3.814.915a6.683 6.683 0 012.651 2.512c.635 1.07.961 2.264.961 3.598s-.326 2.528-.961 3.598c-.636 1.07-1.535 1.908-2.651 2.512-1.132.605-2.403.915-3.814.915-1.396 0-2.667-.31-3.799-.915zm6.388-1.752a4.665 4.665 0 001.814-1.784 5.09 5.09 0 00.666-2.574c0-.961-.217-1.814-.666-2.574a4.665 4.665 0 00-1.814-1.784c-.775-.434-1.644-.651-2.605-.651-.961 0-1.829.217-2.604.651a4.665 4.665 0 00-1.814 1.784 5.094 5.094 0 00-.667 2.574c0 .962.217 1.815.667 2.575a4.665 4.665 0 001.814 1.783c.775.434 1.643.651 2.604.651.977-.015 1.845-.232 2.605-.651zm28.355-6.095c0-1.721-.434-3.04-1.317-3.939-.884-.9-2.109-1.35-3.675-1.365-.992 0-1.876.186-2.666.559a4.46 4.46 0 00-1.876 1.581c-.419-.697-.977-1.24-1.69-1.597s-1.55-.543-2.496-.543c-.868 0-1.643.155-2.357.45a4.65 4.65 0 00-1.752 1.318V8.054h-2.279v13.678h2.326v-8.328c0-1.194.31-2.078.93-2.652.62-.573 1.442-.868 2.465-.868 1.008 0 1.783.28 2.341.837.558.574.837 1.443.837 2.606v8.405h2.326v-8.328c0-1.194.295-2.078.899-2.652.589-.573 1.411-.868 2.434-.868 1.008 0 1.799.28 2.372.837.574.574.853 1.443.853 2.606v8.39h2.325v-8.56z" fill="#fff" />
+              <path d="M144.266 16.987a1.737 1.737 0 100-3.475 1.737 1.737 0 000 3.475z" fill="#00C683" />
+              <path fillRule="evenodd" clipRule="evenodd" d="M36.12 11.829a2.4 2.4 0 000-3.407 2.399 2.399 0 00-1.703-.709 2.36 2.36 0 00-1.687.709l-5.328 5.33a1.27 1.27 0 01-1.417.287 1.263 1.263 0 01-.792-1.181 2.4 2.4 0 00-.708-1.704 2.331 2.331 0 00-1.686-.708h-.051a2.07 2.07 0 01-1.417-.59 2.067 2.067 0 01-.607-1.468 2.509 2.509 0 00-.708-1.687 2.331 2.331 0 00-1.686-.708h-.017a2.013 2.013 0 01-2.04-2.041 2.4 2.4 0 00-.708-1.704 2.398 2.398 0 00-3.406 0l-8.347 8.333L2.193 12.2a7.536 7.536 0 00-2.192 5.465c.05 2.075.894 3.98 2.411 5.38l2.766 2.548a12.621 12.621 0 0017.52-.338L36.12 11.83zM6.864 5.402l1.619-1.619a.91.91 0 00-.641-.354A3.891 3.891 0 003.626 5.52c0 .009-.004.013-.008.017-.004.005-.008.009-.008.017l-2.412 5.313c-.05.085-.067.186-.084.287l.017-.017 1.787-1.804 1.906-1.89 1.635-1.636.405-.405z" fill="#00C683" />
+            </svg>
+          </div>
+          <div className="flex items-center gap-2">
+            <button className="bg-transparent text-white py-2 flex items-center h-[49px] rounded-2xl hover:bg-white hover:bg-opacity-10">
+              <img src={button1} alt="Add Money" className='h-[48px]' />
+            </button>
+            <button className="bg-transparent text-white py-2 flex items-center h-[49px] rounded-2xl hover:bg-white hover:bg-opacity-10">
+              <img src={button2} alt="Extract Money" className='h-[48px]' />
+            </button>
+          </div>
+        </div>
+        <div className="grid grid-cols-4 gap-8 pt-[40px] pb-[60px] text-[21px]">
+          {/* Column 1 */}
+          <div className="border-r border-white border-opacity-10 pr-8">
+            <ul className="space-y-6">
+              <li><button className="text-white hover:text-opacity-80 font-normal text-left">{t.aboutUs}</button></li>
+              <li><button className="text-white hover:text-opacity-80 font-normal text-left">{t.termsOfService}</button></li>
+              <li><button className="text-white hover:text-opacity-80 font-normal text-left">{t.privacyPolicy}</button></li>
+              <li><button className="text-white hover:text-opacity-80 font-normal text-left">{t.responsibleGaming}</button></li>
+              <li><button className="text-white hover:text-opacity-80 font-normal text-left">{t.kycPolicies}</button></li>
+              <li className="pt-[48px]"><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.loginRegister}</button></li>
+            </ul>
+          </div>
+
+          {/* Column 2 */}
+          <div className="border-r border-white border-opacity-10 pr-8">
+            <h3 className="text-white font-medium mb-3">{t.responsibility}</h3>
+            <ul className="space-y-3">
+              <li><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.bonusRules}</button></li>
+              <li><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.selfExclusion}</button></li>
+              <li><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.antiMoneyLaundering}</button></li>
+              <li><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.fairnessAndRNG}</button></li>
+              <li><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.disputeResolution}</button></li>
+            </ul>
+          </div>
+
+          {/* Column 3 */}
+          <div className="border-r border-white border-opacity-10 pr-8">
+            <h3 className="text-white font-medium mb-3">{t.games}</h3>
+            <ul className="space-y-3">
+              <li><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.sportsbook}</button></li>
+              <li><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.esport}</button></li>
+              <li><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.slot}</button></li>
+              <li><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.liveCasino}</button></li>
+            </ul>
+          </div>
+
+          {/* Column 4 */}
+          <div>
+            <h3 className="text-white font-medium mb-3">{t.contact}</h3>
+            <ul className="space-y-3">
+              <li><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.callYou}</button></li>
+              <li><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.contactUs}</button></li>
+              <div className="mt-4 mb-5 flex items-center justify-center bg-[#008758] h-[48px] rounded-2xl text-white w-fit px-4">
+                <svg viewBox="0 0 10 8" xmlns="http://www.w3.org/2000/svg" width="19px">
+                  <path 
+                    fillRule="evenodd" 
+                    clipRule="evenodd" 
+                    d="M9.019 5.385l-.011.004V1.346A1.35 1.35 0 007.656 0H1.351C.605 0 0 .603 0 1.346v4.039C0 6.128.605 6.73 1.351 6.73h5.866L8.25 7.76a.451.451 0 00.769-.317V5.385zm-4.516-.449c-1.06 0-1.947-.53-2.627-1.546a.448.448 0 01.125-.622.451.451 0 01.625.124c.52.779 1.136 1.147 1.877 1.147.74 0 1.356-.368 1.877-1.147a.451.451 0 01.624-.124.448.448 0 01.125.622c-.68 1.016-1.566 1.546-2.626 1.546z" 
+                    fill="#fff"
+                  />
+                </svg>
+                <span className="pl-3">{t.support}</span>
+              </div>
+              <SocialMediaLinks />
+            </ul>
+          </div>
         </div>
       </div>
     </div>
