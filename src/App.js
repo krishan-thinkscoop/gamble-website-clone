@@ -552,13 +552,15 @@ export default function App() {
               <ChevronRight className="w-6 h-6" />
             </button>
             
-            <div className="ml-auto relative">
+            <div className="ml-auto relative flex items-center gap-4">
               <input
                 type="text"
                 placeholder={language === 'tr' ? 'Tümü' : 'All'}
-                className="w-full py-[9px] pl-[40px] pr-[15px] bg-[#475059] border border-[#858f99] text-white rounded-xl outline-none placeholder:text-white"
+                className="w-full h-[47px] py-[9px] pl-[40px] pr-[15px] bg-[#475059] border border-[#858f99] text-white rounded-xl outline-none placeholder:text-white"
               />
-              <Search className="w-4 h-4 text-gray-400 absolute left-[15px] top-1/2 -translate-y-1/2" />
+              <div className="flex items-center justify-center border border-[#858f99] rounded-xl w-[45px] h-[47px] px-3">
+                <Search className="w-4 h-4 text-gray-400" />
+              </div>
             </div>
           </div>
           {/* Games Grid */}
