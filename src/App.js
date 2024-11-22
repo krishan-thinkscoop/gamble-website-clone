@@ -522,7 +522,7 @@ export default function App() {
           <div className="game-container bg-[#39414a] rounded-[20px] px-[20px] py-[30px]">
           <div className="flex items-center gap-4 mb-6 text-[15px] relative">
             <button 
-              className="text-gray-400 hover:text-white p-2 sticky left-0 z-10"
+              className="text-gray-400 hover:text-white sticky left-0 z-10 bg-[#525c66] border-[1px] border-[#858f99] rounded-xl w-[24px] h-[47px] flex items-center justify-center"
               onClick={() => handleScroll('left')}
             >
               <ChevronLeft className="w-6 h-6" />
@@ -546,7 +546,7 @@ export default function App() {
             </div>
 
             <button 
-              className="text-gray-400 hover:text-white p-2 sticky right-0 z-10"
+              className="text-gray-400 hover:text-white sticky right-0 z-10 bg-[#525c66] border-[1px] border-[#858f99] rounded-xl w-[24px] h-[47px] flex items-center justify-center"
               onClick={() => handleScroll('right')}
             >
               <ChevronRight className="w-6 h-6" />
@@ -556,9 +556,9 @@ export default function App() {
               <input
                 type="text"
                 placeholder={language === 'tr' ? 'Tümü' : 'All'}
-                className="pl-9 py-2 bg-[#1e2630] border border-[#3a4553] text-white w-64 rounded-md"
+                className="w-full py-[9px] pl-[40px] pr-[15px] bg-[#475059] border border-[#858f99] text-white rounded-xl outline-none placeholder:text-white"
               />
-              <Search className="w-4 h-4 text-gray-400 absolute left-3 top-2.5" />
+              <Search className="w-4 h-4 text-gray-400 absolute left-[15px] top-1/2 -translate-y-1/2" />
             </div>
           </div>
           {/* Games Grid */}
@@ -566,14 +566,26 @@ export default function App() {
             {games.map((game) => (
               <div key={game.title} className="relative group">
                 <img src={game.image} alt={getGameTitle(game.title)} width={300} height={200} className="rounded-lg w-full" />
-                <div className="bg-black bg-opacity-0 rounded-lg">
+                <div className="bg-black bg-opacity-0 rounded-lg flex justify-between items-center">
                   <div className="p-4 text-white">
                     <span className="font-normal text-[13px]">
                       {getGameTitle(game.title)} - {getProviderName(game.provider)}
                     </span>
                   </div>
-                  <button className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-all duration-300 text-white p-1">
-                    <Star className="w-4 h-4" />
+                  <button className="text-white p-1">
+                    <svg 
+                      viewBox="0 0 19 19" 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      height="18px" 
+                      className="float-right cp"
+                    >
+                      <path 
+                        fillRule="evenodd" 
+                        clipRule="evenodd" 
+                        d="M12.11 4.005c-.966.042-1.665.337-2.394.929l-.216.183-.016-.014C8.618 4.343 7.83 4 6.64 4 4.403 4 3 5.806 3 8.086c0 2.87 2.84 5.525 6.215 6.86a.775.775 0 00.57 0C13.16 13.61 16 10.956 16 8.086 16 5.806 14.597 4 12.36 4l-.25.005zm.25 1.566c1.28 0 2.08 1.03 2.08 2.515l-.007.192c-.133 1.862-2.175 3.842-4.691 4.981l-.242.106-.242-.106C6.655 12.081 4.56 10.003 4.56 8.086c0-1.485.8-2.515 2.08-2.515.931 0 1.453.31 2.305 1.18a.776.776 0 001.11 0c.852-.87 1.374-1.18 2.305-1.18z" 
+                        fill="#9DA8B3"
+                      />
+                    </svg>
                   </button>
                 </div>
               </div>
@@ -669,62 +681,76 @@ export default function App() {
             </button>
           </div>
         </div>
-        <div className="grid grid-cols-4 gap-8 pt-[40px] pb-[60px] text-[21px]">
+        <div className="flex pt-[40px] pb-[60px] text-[21px] w-fit">
           {/* Column 1 */}
-          <div className="border-r border-white border-opacity-10 pr-8">
-            <ul className="space-y-6">
-              <li><button className="text-white hover:text-opacity-80 font-normal text-left">{t.aboutUs}</button></li>
-              <li><button className="text-white hover:text-opacity-80 font-normal text-left">{t.termsOfService}</button></li>
-              <li><button className="text-white hover:text-opacity-80 font-normal text-left">{t.privacyPolicy}</button></li>
-              <li><button className="text-white hover:text-opacity-80 font-normal text-left">{t.responsibleGaming}</button></li>
-              <li><button className="text-white hover:text-opacity-80 font-normal text-left">{t.kycPolicies}</button></li>
+          <div className="border-r border-white border-opacity-10 pr-8 w-fit">
+            <ul className="space-y-6 w-fit">
+              <li className='w-fit'><button className="text-white hover:text-opacity-80 font-normal text-left">{t.aboutUs}</button></li>
+              <li className='w-fit'><button className="text-white hover:text-opacity-80 font-normal text-left">{t.termsOfService}</button></li>
+              <li className='w-fit'><button className="text-white hover:text-opacity-80 font-normal text-left">{t.privacyPolicy}</button></li>
+              <li className='w-fit'><button className="text-white hover:text-opacity-80 font-normal text-left">{t.responsibleGaming}</button></li>
+              <li className='w-fit'><button className="text-white hover:text-opacity-80 font-normal text-left">{t.kycPolicies}</button></li>
               <li className="pt-[48px]"><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.loginRegister}</button></li>
             </ul>
           </div>
 
           {/* Column 2 */}
-          <div className="border-r border-white border-opacity-10 pr-8">
+          <div className="border-r border-white border-opacity-10 pr-8 pl-[112px] w-fit">
             <h3 className="text-white font-medium mb-3">{t.responsibility}</h3>
-            <ul className="space-y-3">
-              <li><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.bonusRules}</button></li>
-              <li><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.selfExclusion}</button></li>
-              <li><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.antiMoneyLaundering}</button></li>
-              <li><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.fairnessAndRNG}</button></li>
-              <li><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.disputeResolution}</button></li>
+            <ul className="space-y-3 w-fit">
+              <li className='w-fit'><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.bonusRules}</button></li>
+              <li className='w-fit'><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.selfExclusion}</button></li>
+              <li className='w-fit'><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.antiMoneyLaundering}</button></li>
+              <li className='w-fit'><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.fairnessAndRNG}</button></li>
+              <li className='w-fit'><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.disputeResolution}</button></li>
             </ul>
           </div>
 
           {/* Column 3 */}
-          <div className="border-r border-white border-opacity-10 pr-8">
+          <div className="border-r border-white border-opacity-10 pr-8 pl-[112px] w-fit">
             <h3 className="text-white font-medium mb-3">{t.games}</h3>
-            <ul className="space-y-3">
-              <li><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.sportsbook}</button></li>
-              <li><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.esport}</button></li>
-              <li><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.slot}</button></li>
-              <li><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.liveCasino}</button></li>
+            <ul className="space-y-3 w-fit">
+              <li className='w-fit'><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.sportsbook}</button></li>
+              <li className='w-fit'><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.esport}</button></li>
+              <li className='w-fit'><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.slot}</button></li>
+              <li className='w-fit'><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.liveCasino}</button></li>
             </ul>
           </div>
 
           {/* Column 4 */}
-          <div>
+          <div className="pl-[112px] w-fit">
             <h3 className="text-white font-medium mb-3">{t.contact}</h3>
-            <ul className="space-y-3">
-              <li><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.callYou}</button></li>
-              <li><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.contactUs}</button></li>
-              <div className="mt-4 mb-5 flex items-center justify-center bg-[#008758] h-[48px] rounded-2xl text-white w-fit px-4">
-                <svg viewBox="0 0 10 8" xmlns="http://www.w3.org/2000/svg" width="19px">
-                  <path 
-                    fillRule="evenodd" 
-                    clipRule="evenodd" 
-                    d="M9.019 5.385l-.011.004V1.346A1.35 1.35 0 007.656 0H1.351C.605 0 0 .603 0 1.346v4.039C0 6.128.605 6.73 1.351 6.73h5.866L8.25 7.76a.451.451 0 00.769-.317V5.385zm-4.516-.449c-1.06 0-1.947-.53-2.627-1.546a.448.448 0 01.125-.622.451.451 0 01.625.124c.52.779 1.136 1.147 1.877 1.147.74 0 1.356-.368 1.877-1.147a.451.451 0 01.624-.124.448.448 0 01.125.622c-.68 1.016-1.566 1.546-2.626 1.546z" 
-                    fill="#fff"
-                  />
-                </svg>
-                <span className="pl-3">{t.support}</span>
+            <ul className="space-y-3 w-fit">
+              <li className='w-fit'><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.callYou}</button></li>
+              <li className='w-fit'><button className="text-white hover:text-opacity-80 text-[15px] font-normal text-left">{t.contactUs}</button></li>
+              <div className="pt-[24px] pb-[48px]">
+                <div className="flex items-center justify-center bg-[#008758] h-[48px] rounded-2xl text-white w-fit px-4">
+                  <svg viewBox="0 0 10 8" xmlns="http://www.w3.org/2000/svg" width="19px">
+                    <path 
+                      fillRule="evenodd" 
+                      clipRule="evenodd" 
+                      d="M9.019 5.385l-.011.004V1.346A1.35 1.35 0 007.656 0H1.351C.605 0 0 .603 0 1.346v4.039C0 6.128.605 6.73 1.351 6.73h5.866L8.25 7.76a.451.451 0 00.769-.317V5.385zm-4.516-.449c-1.06 0-1.947-.53-2.627-1.546a.448.448 0 01.125-.622.451.451 0 01.625.124c.52.779 1.136 1.147 1.877 1.147.74 0 1.356-.368 1.877-1.147a.451.451 0 01.624-.124.448.448 0 01.125.622c-.68 1.016-1.566 1.546-2.626 1.546z" 
+                      fill="#fff"
+                    />
+                  </svg>
+                  <span className="pl-3">{t.support}</span>
+                </div>
               </div>
               <SocialMediaLinks />
             </ul>
           </div>
+        </div>
+      </div>
+      <div className="px-5 mx-auto" style={{ maxWidth: '1200px', minWidth: '1200px' }}>
+        <div className="p-[40px] flex items-center text-white text-[11px]">
+          <img src="https://seal.cgcb.info/1c0246df-1aa7-485a-a24c-21ae5e730000" alt="CGCB Seal" />
+          <span className="ml-4">
+            {language === 'tr' ? (
+              'Bahis.com, Socas International B.V. şirketine bağlı olarak Dr. M. J.Hugenholtzweg 25, Willemstad, Curacao adresinde kayıtlı özel bir şirkettir. Socas International B.V., GLH-OCCHKTW0708022022 lisans numarası altında Bahis.com olarak Curaçao Hükümeti tarafından yetkilendirilmiş Curaçao eGaming tarafından lisanslanmıştır ve düzenlenmiştir.'
+            ) : (
+              'Bahis.com is a private company registered at Dr. M. J.Hugenholtzweg 25, Willemstad, Curacao, under Socas International B.V. Socas International B.V. is licensed and regulated by Curaçao eGaming, authorized by the Government of Curaçao under license number GLH-OCCHKTW0708022022 as Bahis.com.'
+            )}
+          </span>
         </div>
       </div>
     </div>

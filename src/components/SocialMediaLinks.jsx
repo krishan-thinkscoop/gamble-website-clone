@@ -42,7 +42,7 @@ const SocialMediaLinks = () => {
   ];
 
   return (
-    <div className="flex items-center mt-5 pt-5 space-x-6">
+    <div className="flex items-center space-x-6 pt-[96px]">
       {socialLinks.map((social) => (
         <a
           key={social.name}
